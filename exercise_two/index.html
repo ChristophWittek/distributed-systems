@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Datei hochladen</h1>
+  <input type="file" id="f">
+  <button onclick="send()">Hochladen</button>
+  <p><a href="/files">Hochgeladene Dateien anzeigen</a></p>
+  <script>
+    function send() {
+      var d = document.getElementById('f').files[0];
+      if (!d) return;
+      fetch('/' + encodeURIComponent(d.name), {method: 'PUT', body: d})
+        .then(r => r.text())
+        .then(t => alert(t));
+    }
+  </script>
+</body>
+</html>

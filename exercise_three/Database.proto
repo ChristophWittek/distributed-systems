@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_outer_classname = "DbProtos";
+
+message GetRecordRequest { int32 index = 1; }
+message AddRecordRequest { int32 index = 1; string record = 2; }
+message GetSizeRequest   { }
+
+message RPC_Request {
+  enum Operation {
+    UNKNOWN = 0;
+    GET_RECORD = 1;
+    ADD_RECORD = 2;
+    GET_SIZE = 3;
+  }
+  Operation operation = 1;
+  GetRecordRequest get_record_arg = 2;
+  AddRecordRequest add_record_arg = 3;
+  GetSizeRequest get_size_arg = 4; 
+}
+
+message GetRecordResponse { bool found = 1; string record = 2; }
+message AddRecordResponse { bool success = 1; }
+message GetSizeResponse { int32 size = 1; }

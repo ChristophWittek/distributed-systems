@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_outer_classname = "LogProtos";
+
+enum Severity {
+  DEBUG = 0;
+  INFO  = 1;
+  WARN  = 2;
+  ERROR = 3;
+  FATAL = 4;
+}
+
+message LogMessage {
+  int64 timestamp_millis = 1;
+  optional string source = 2;
+  Severity severity = 3;
+  string text = 4;
+}
