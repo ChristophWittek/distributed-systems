@@ -14,7 +14,7 @@ public class DbSocketClient {
             socket.setSoTimeout(10_000);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
+            getSize(in, out);
             addRecord(in, out, 4101, "Appen");
             addRecord(in, out, 4102, "Ahrensburg");
             addRecord(in, out, 4103, "Wedel");

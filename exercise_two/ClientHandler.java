@@ -26,7 +26,9 @@ class ClientHandler implements Runnable {
             var writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8));
 
             String requestLine = reader.readLine();
-            if (requestLine == null) return;
+            if (requestLine == null) {
+                return;
+            }
             String[] req = requestLine.split(" ");
             String method = req[0];
             String path = req[1];
