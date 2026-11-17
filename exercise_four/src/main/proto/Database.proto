@@ -8,7 +8,7 @@ message AddRecordRequest { int32 index = 1; string record = 2; }
 message GetSizeRequest { }
 
 message RpcResponse {
-  optional string record = 1;   // nicht gesetzt = nicht gefunden
+  optional string record = 1;
   int32 size = 2;
 }
 

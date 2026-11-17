@@ -18,7 +18,6 @@ public class DatabaseServer {
         server.awaitTermination();
     }
 
-    // Die Implementierung der drei rpc-Methoden aus der .proto
     static class DatabaseService extends DatabaseGrpc.DatabaseImplBase {
 
         private final Map<Integer, String> db = new ConcurrentHashMap<>();
