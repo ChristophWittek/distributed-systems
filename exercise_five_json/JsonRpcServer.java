@@ -28,7 +28,6 @@ public class JsonRpcServer {
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(), StandardCharsets.UTF_8));
             PrintWriter out = new PrintWriter(new OutputStreamWriter(client.getOutputStream(), StandardCharsets.UTF_8), true);
 
-            // eine JSON-Nachricht pro Zeile
             String request;
             while ((request = in.readLine()) != null) {
                 System.out.println("→ " + request);
@@ -41,7 +40,6 @@ public class JsonRpcServer {
         }
     }
 
-    // Request auswerten und Antwort bauen
     private static String process(String request) {
         String method = find(request, "\"method\"\\s*:\\s*\"(\\w+)\"");
         String id = find(request, "\"id\"\\s*:\\s*(\\d+)");
@@ -67,7 +65,6 @@ public class JsonRpcServer {
         }
     }
 
-    // erstes Vorkommen eines Musters im Text finden
     private static String find(String text, String regex) {
         Matcher m = Pattern.compile(regex).matcher(text);
         return m.find() ? m.group(1) : null;
