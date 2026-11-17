@@ -1,0 +1,19 @@
+syntax = "proto3";
+package protocolbuffers;
+option java_package = "protocolbuffers";
+option java_multiple_files = true;
+
+message GetRecordRequest { int32 index = 1; }
+message AddRecordRequest { int32 index = 1; string record = 2; }
+message GetSizeRequest { }
+
+message RpcResponse {
+  optional string record = 1;   // nicht gesetzt = nicht gefunden
+  int32 size = 2;
+}
+
+service Database {
+  rpc GetRecord (GetRecordRequest) returns (RpcResponse);
+  rpc AddRecord (AddRecordRequest) returns (RpcResponse);
+  rpc GetSize   (GetSizeRequest)   returns (RpcResponse);
+}

@@ -1,3 +1,8 @@
+#exercise_four
+exercise_four/build/
+exercise_four/.gradle/
+!exercise_four/gradle/wrapper/gradle-wrapper.jar
+
 # Compiled class file
 *.class
 
